@@ -4,7 +4,11 @@ SRC  = "glyph_codex.xlsx"           # your workbook
 DEST = pathlib.Path("public/glyphs.json")
 
 # ---- column headers in Excel (type them EXACTLY) -----------------
-keep = ["Name", "Level", "New Text", "Higher Tiers"]
+keep = [
+    "Name", "Level", "Points", "School", "V", "S",
+    "Casting Time", "Concentration", "Duration", "Range", "Rite",
+    "New Text", "Higher Tiers",
+]
 # ------------------------------------------------------------------
 
 df = pd.read_excel(SRC, engine="openpyxl")[keep]

@@ -28,7 +28,7 @@ jobs:
           python -m pip install pandas openpyxl --quiet
           python - <<'PY'
           import pandas as pd, pathlib, json
-          keep = ["Name", "Level", "New Text", "Higher Tiers"]  # exact headers!
+          keep = ["Name", "Level", "Points", "School", "V", "S", "Casting Time", "Concentration", "Duration", "Range", "Rite", "New Text", "Higher Tiers",]
           df = pd.read_excel("glyph_codex.xlsx", engine="openpyxl")[keep]
           pathlib.Path("public").mkdir(exist_ok=True)
           df.to_json("public/glyphs.json", orient="records", indent=2, force_ascii=False)
