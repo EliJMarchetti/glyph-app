@@ -5,10 +5,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ChevronDown } from "lucide-react";
 
 /**
- * GlyphRepository.jsx  (updated to match Excel headers)
+ * GlyphRepository.jsx
  * ------------------------------------------------------
- * Expects a JSON file at /public/glyphs.json with fields:
- *   Name, Level, School, New Text, Higher Tiers, ...
+ * Expects glyph data at `${import.meta.env.BASE_URL}glyphs.json` so it works
+ * both in local dev (`/`) and on GitHub Pages (`/glyph-app/`).
  */
 
 export default function GlyphRepository() {
@@ -18,7 +18,7 @@ export default function GlyphRepository() {
 
   // Load JSON once
   useEffect(() => {
-    fetch("/glyphs.json")
+    fetch(`${import.meta.env.BASE_URL}glyphs.json`)
       .then((res) => res.json())
       .then(setGlyphs)
       .catch((err) => console.error("Failed to load glyphs:", err));
