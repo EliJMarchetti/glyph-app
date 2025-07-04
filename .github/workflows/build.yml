@@ -1,56 +1,42 @@
 name: build-and-deploy
-
 on:
   push:
     branches: [main]
-    paths:
-      - "glyph_codex.xlsx"
-      - "src/**"
-      - "package.json"
-      - "vite.config.*"
-      - ".github/workflows/build.yml"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # 1. Checkout repo
       - uses: actions/checkout@v4
 
-      # 2. Set up Node
-      - uses: actions/setup-node@v4
+      # ---------- Build glyphs.json from Excel ----------
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          node-version: "20"
+          python-version: "3.12"
 
-      # 3. Convert Excel → JSON
-      - name: Convert Excel to JSON
+      - name: Install python deps
         run: |
-          python -m pip install pandas openpyxl --quiet
-          python - <<'PY'
-          import pandas as pd, pathlib, json
-          keep = ["Name", "Level", "Points", "School", "V", "S", "Casting Time", "Concentration", "Duration", "Range", "Rite", "New Text", "Higher Tiers",]
-          df = pd.read_excel("glyph_codex.xlsx", engine="openpyxl")[keep]
-          pathlib.Path("public").mkdir(exist_ok=True)
-          df.to_json("public/glyphs.json", orient="records", indent=2, force_ascii=False)
-          print("Wrote public/glyphs.json")
-          PY
+          python -m pip install --upgrade pip
+          pip install pandas openpyxl
 
-      # 4. Install deps & build Vite
-      - run: npm ci
-      - run: npm run build      # outputs to dist/
+      - name: Convert Excel ⇒ JSON
+        run: |
+          python excel_to_json.py
 
-      # 5. Upload artifact for Pages
-      - uses: actions/upload-pages-artifact@v3
+      # ---------- Build & deploy Vite site -------------
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          path: dist
+          node-version: "22"
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-    steps:
-      - uses: actions/deploy-pages@v4
+      - name: Install & build
+        run: |
+          npm ci
+          npm run build -- --base=/glyph-app/
+
+      - name: Deploy to Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
