@@ -1,0 +1,91 @@
+/* src/Global.css  – site-wide look & feel  ---------------------------- */
+
+/* custom font */
+@font-face {
+  font-family: "Feelfree";
+  src: url("/glyph-app/assets/FeelfreePersonal.ttf") format("truetype");
+  font-display: swap;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family: "Feelfree", sans-serif;
+  color: #fff;                 /* white text */
+}
+
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.control,
+.school {
+  background: rgba(0, 0, 0, 0.25); /* translucent black */
+  color: #fff;
+  border: 1px solid #666;
+  padding: 0.4rem 0.6rem;
+  margin: 0.25rem;
+  border-radius: 4px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.schools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.25);
+  margin-bottom: 0.75rem;
+  border: 1px solid #666;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+}
+
+.tier-mana {
+  text-align: right;
+  line-height: 1.1;
+}
+
+.flags {
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.meta,
+.body,
+.higher {
+  padding: 0.6rem 0.8rem;
+}
+
+.meta strong,
+.higher strong {
+  font-weight: 700;
+}
