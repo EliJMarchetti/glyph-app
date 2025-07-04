@@ -1,6 +1,7 @@
 ﻿@font-face {
   font-family: \"Feelfree\";
-  src: url(\"/glyph-app/assets/FeelfreePersonal.ttf\") format(\"truetype\");
+  src: url(\"/glyphsrc: url("/glyph-app/FeelfreePersonal.ttf") format("truetype");
+-app/assets/FeelfreePersonal.ttf\") format(\"truetype\");
   font-display: swap;
 }
 

@@ -52,7 +52,7 @@ export default function GlyphRepository() {
         loop
         playsInline
         className="bg-video"
-        src={`${import.meta.env.BASE_URL}assets/bg.mov`}
+        src={`${import.meta.env.BASE_URL}bg.mov`}
       />
 
       {/* content overlay */}
