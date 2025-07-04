@@ -1,7 +1,10 @@
-﻿@font-face {
-  font-family: \"Feelfree\";
-  src: url(\"/glyphsrc: url("/glyph-app/FeelfreePersonal.ttf") format("truetype");
--app/assets/FeelfreePersonal.ttf\") format(\"truetype\");
+﻿/* src/Global.css */
+@font-face {
+  font-family: "FeelfreePersonal";
+  /* GitHub Pages build uses `--base=/glyph-app/`, so include the same prefix */
+  src: url("/glyph-app/FeelfreePersonal.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
   font-display: swap;
 }
 
