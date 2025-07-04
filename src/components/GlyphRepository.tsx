@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useEffect, useMemo, useState } from "react";
-import "../global.css"; // new global styles (video bg, font, colors)
+import "../Global.css"; // new global styles (video bg, font, colors)
 
 const ALL_SCHOOLS = [
   "Harmony",
