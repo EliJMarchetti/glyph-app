@@ -1,7 +1,7 @@
+// src/App.tsx
+import React from "react";
 import GlyphRepository from "./components/GlyphRepository";
 
-function App() {
+export default function App() {
   return <GlyphRepository />;
 }
-
-export default App;
