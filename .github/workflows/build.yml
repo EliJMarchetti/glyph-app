@@ -1,4 +1,12 @@
 name: build-and-deploy
+permissions:
+  contents: write   # allow git push
+  pages:    write   # if you ever switch to the official Pages action
+  id-token: write   # required by 'actions/deploy-pages', harmless otherwise
+
+on:
+  push:
+    branches: [ main ]
 on:
   push:
     branches: [main]
