@@ -1,7 +1,7 @@
 ﻿/* src/Global.css */
 @font-face {
   font-family: "FeelfreePersonal";
-  /* GitHub Pages build uses `--base=/glyph-app/`, so include the same prefix */
+  /* Vite will strip /glyph-app/ from the beginning when you pass --base=/glyph-app/ */
   src: url("/glyph-app/FeelfreePersonal.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
