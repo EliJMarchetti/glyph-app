@@ -1,4 +1,4 @@
-/* src/Global.css  – site-wide look & feel  ---------------------------- */
+/* --- Global.css : video background + dark translucent UI --- */
 
 /* custom font */
 @font-face {
@@ -7,14 +7,15 @@
   font-display: swap;
 }
 
-html,
-body {
+/* base page */
+html, body {
   margin: 0;
   height: 100%;
   font-family: "Feelfree", sans-serif;
-  color: #fff;                 /* white text */
+  color: #fff;
 }
 
+/* full-screen looping video */
 .bg-video {
   position: fixed;
   inset: 0;
@@ -24,68 +25,26 @@ body {
   z-index: -1;
 }
 
-.container {
-  max-width: 72rem;
-  margin: 0 auto;
-  padding: 1rem;
-}
+/* layout */
+.container { max-width: 72rem; margin: 0 auto; padding: 1rem; }
 
-.control,
-.school {
-  background: rgba(0, 0, 0, 0.25); /* translucent black */
+/* translucent widgets */
+.control, .school, .card {
+  background: rgba(0,0,0,.25);
   color: #fff;
   border: 1px solid #666;
-  padding: 0.4rem 0.6rem;
-  margin: 0.25rem;
-  border-radius: 4px;
-}
-
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.schools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.card {
-  background: rgba(0, 0, 0, 0.25);
-  margin-bottom: 0.75rem;
-  border: 1px solid #666;
   border-radius: 6px;
-  overflow: hidden;
 }
 
-.card-head {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.6rem 0.8rem;
-  cursor: pointer;
-}
+.controls, .schools  { display: flex; flex-wrap: wrap; gap: .5rem; }
+.control  { padding: .4rem .6rem; }
+.school   { padding: .3rem .5rem; font-size: .9rem; }
+.card     { margin-bottom: .75rem; overflow: hidden; }
 
-.tier-mana {
-  text-align: right;
-  line-height: 1.1;
-}
+/* glyph card internals */
+.card-head     { display: flex; justify-content: space-between; padding: .6rem .8rem; cursor: pointer; }
+.tier-mana     { text-align: right; line-height: 1.1; }
+.flags         { font-size: .8em; opacity: .8; }
 
-.flags {
-  font-size: 0.8em;
-  opacity: 0.8;
-}
-
-.meta,
-.body,
-.higher {
-  padding: 0.6rem 0.8rem;
-}
-
-.meta strong,
-.higher strong {
-  font-weight: 700;
-}
+.meta, .body, .higher { padding: .6rem .8rem; }
+.meta strong, .higher strong { font-weight: 700; }
