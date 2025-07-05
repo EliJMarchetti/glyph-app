@@ -1,31 +1,52 @@
-﻿html,body{margin:0;height:100%;font-family:sans-serif;color:#fff}
+﻿/* -------------- global dark theme ------------------ */
+@font-face {
+  font-family: "Feelfree";
+  src: url("/glyph-app/FeelfreePersonal.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-.bg-video{
-  position:fixed;
-  inset:0;
-  width:100%;
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --card: rgba(0,0,0,.25);
+  --border: rgba(255,255,255,.12);
+}
+
+html,body{
+  margin:0;
   height:100%;
-  object-fit:cover;
-  z-index:-1;
+  background: var(--bg);
+  color:var(--fg);
+  font-family:"Feelfree", system-ui, sans-serif;
 }
 
-.container{max-width:72rem;margin:0 auto;padding:1rem}
-
-.control,.school,.card{
-  background:rgba(0,0,0,.25);
-  color:#fff;
-  border:1px solid #666;
-  border-radius:6px;
+/* full-screen background video */
+.bg-video{
+  position:fixed;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  z-index:-1;               /* behind everything */
 }
 
-.controls,.schools{display:flex;flex-wrap:wrap;gap:.5rem}
-.control{padding:.4rem .6rem}
-.school{padding:.3rem .5rem;font-size:.9rem}
+/* layout */
+.container{max-width:720px;margin:0 auto;padding:1rem;}
+.controls,.schools{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;}
+.control{background:var(--card);border:1px solid var(--border);padding:.5rem;color:var(--fg);}
 
-.card{margin-bottom:.75rem;overflow:hidden}
-.card-head{display:flex;justify-content:space-between;padding:.6rem .8rem;cursor:pointer}
-.tier-mana{text-align:right;line-height:1.1}
-.flags{font-size:.8em;opacity:.8}
+.school{user-select:none}
+.school input{accent-color:var(--fg);margin-right:.25rem;}
 
-.meta,.body,.higher{padding:.6rem .8rem}
-.meta strong,.higher strong{font-weight:700}
+.glyph-list{display:flex;flex-direction:column;gap:1rem}
+
+/* card */
+.card{background:var(--card);border:1px solid var(--border);border-radius:.5rem;overflow:hidden}
+.card[open]>.card-head{border-bottom:1px solid var(--border)}
+.card-head{display:flex;justify-content:space-between;cursor:pointer;padding:.75rem 1rem;}
+.flags,.tier-mana{opacity:.75;font-size:.8rem;line-height:1.2}
+.mana{font-size:.7rem}
+
+.meta,strong{font-size:.85rem}
+.meta div{margin:.25rem 0}
+.higher{margin-top:.5rem;font-size:.9rem;font-style:italic}
+
+details > summary::-webkit-details-marker{display:none} /* hide arrow */
