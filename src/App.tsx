@@ -1,6 +1,7 @@
-// src/App.tsx
-import GlyphRepository from "./components/GlyphRepository";
+// Import the modified GlyphRepository component
+import ModifiedGlyphRepository from "./components/GlyphRepository";
 
 export default function App() {
-  return <GlyphRepository />;
+  // Use the updated GlyphRepository component in return statement
+  return <ModifiedGlyphRepository />;
 }

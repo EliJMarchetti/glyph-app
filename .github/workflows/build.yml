@@ -1,4 +1,4 @@
-name: build-and-deploy
+name: update-and-deploy
 permissions:
   contents: write   # allow git push
   pages:    write   # if you ever switch to the official Pages action
@@ -27,8 +27,7 @@ jobs:
 
       - name: Convert Excel ⇒ JSON
         run: |
-          python excel_to_json.py
-
+          python update_glyphs.py    # renamed script to 'update_glyphs'
       # ---------- Build & deploy Vite site -------------
       - name: Set up Node
         uses: actions/setup-node@v4

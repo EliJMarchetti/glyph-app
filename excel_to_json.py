@@ -1,10 +1,12 @@
 ﻿import pandas as pd, pathlib
 
-SRC  = "glyph_codex.xlsx"           # your workbook
-DEST = pathlib.Path("public/glyphs.json")
+def export_excel_to_json(xlsx_path, json_dest_dir):
+    # your workbook path
+    SRC = xlsx_path
+    DEST = pathlib.Path(json_dest_dir, "glyphs.json")
 
-# ---- column headers in Excel (type them EXACTLY) -----------------
-keep = [
+    # column headers in Excel (type them EXACTLY) -----------------
+    keep = [
     "Name", "Level", "Points", "School", "V", "S",
     "Casting Time", "Concentration", "Duration", "Range", "Rite",
     "New Text", "Higher Tiers",

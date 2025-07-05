@@ -1,3 +1,8 @@
-﻿@tailwind base;
-@tailwind components;
-@tailwind utilities;
+﻿// Existing Tailwind imports...
+
+// Add custom styles below
+.custom-class {
+  /* Your new styles for .custom-class */
+}
+
+// ... rest of CSS ...
