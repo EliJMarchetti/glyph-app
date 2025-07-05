@@ -12,12 +12,13 @@ html,body{
 }
 
 video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ background-image: url('/bg.mov'); /* Use the appropriate path to your video file */
 }
 
 body {
