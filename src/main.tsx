@@ -1,8 +1,8 @@
 ﻿import React from "react";
 import ReactDOM from "react-dom/client";
 
-/* default Vite sheet */      import "./index.css";
-/* global dark theme */       import "./Global.css";   // <── NEW
+import "./index.css";
+import "./Global.css";
 
 import GlyphRepository from "./components/GlyphRepository";
 
